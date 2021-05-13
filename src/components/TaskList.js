@@ -1,4 +1,4 @@
-const TaskList = () => {
+const TaskList = (tasks) => {
 
     const container = $(document.createElement('div'));
     container.attr({
@@ -27,7 +27,7 @@ const TaskList = () => {
     });
     cardSubtitle.html('This is our task list');
     
-    cardBody.append([cardTitle, cardSubtitle]);
+    cardBody.append([cardTitle, cardSubtitle, tasks]);
     card.append(cardBody);
     container.append(card)
 
