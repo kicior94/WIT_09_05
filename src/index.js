@@ -4,7 +4,11 @@ import TaskList from './components/TaskList.js';
 import Tasks from './components/Tasks.js';
 
 
+
 const root = $('#root');
+export const store = {
+    tasks: [] 
+};
 const tasks = Tasks();
 const navigation = Navigation('WIT To-Do App');
 const taskForm = TaskForm();
