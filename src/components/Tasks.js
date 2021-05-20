@@ -27,6 +27,9 @@ const Tasks = () => {
 
     // 2). Create table body
     const tbody = $(document.createElement('tbody'));
+    tbody.attr({
+        id: 'tableBody'
+    });
     const task1 = $(document.createElement('tr'));
     const task1Number = $(document.createElement('td'));
     task1Number.html('1');

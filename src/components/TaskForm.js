@@ -25,7 +25,7 @@ const TaskForm = () => {
     addTaskBtn.attr({
         class: 'btn btn-dark'
     });
-    addTaskBtn.click(getFormValues);
+    addTaskBtn.click(createNewTask);
 
     addTaskBtnWrapper.append(addTaskBtn);
 
@@ -42,11 +42,26 @@ const TaskForm = () => {
 function getFormValues(){
     const taskName = $('#taskNameInput').val();
     const taskDescription = $('#taskDescriptionInput').val();
-    store.tasks.push({
+    
+    return {
         taskName: taskName,
         taskDescription: taskDescription
-    });
-    console.log(store);
+    };
+}
+
+function createNewTask(){
+    const tr = $(document.createElement('tr'));
+    const td_number = $(document.createElement('td'));
+    const td_taskName = $(document.createElement('td'));
+    const td_taskDescription = $(document.createElement('td'));
+
+    const taskDetails = getFormValues();
+    td_number.html('1');
+    td_taskName.html(taskDetails.taskName);
+    td_taskDescription.html(taskDetails.taskDescription);
+
+    tr.append([td_number, td_taskName, td_taskDescription]);
+    $('#tableBody').append(tr);
 }
 
 export default TaskForm;
